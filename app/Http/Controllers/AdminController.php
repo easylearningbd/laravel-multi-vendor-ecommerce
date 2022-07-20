@@ -68,6 +68,11 @@ public function AdminDestroy(Request $request){
 
     } // End Mehtod 
 
+
+    public function AdminChangePassword(){
+        return view('admin.admin_change_password');
+    } // End Mehtod 
+
  
 
 }

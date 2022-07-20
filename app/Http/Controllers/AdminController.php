@@ -59,7 +59,12 @@ public function AdminDestroy(Request $request){
 
         $data->save();
 
-        return redirect()->back();
+        $notification = array(
+            'message' => 'Admin Profile Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
 
     } // End Mehtod 
 

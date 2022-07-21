@@ -343,7 +343,7 @@
 							</div>
 						</a>
 		<ul class="dropdown-menu dropdown-menu-end">
-			<li><a class="dropdown-item" href="{{ route('admin.profile') }}"><i class="bx bx-user"></i><span>Profile</span></a>
+			<li><a class="dropdown-item" href="{{ route('vendor.profile') }}"><i class="bx bx-user"></i><span>Profile</span></a>
 			</li>
 			<li><a class="dropdown-item" href="{{ route('admin.change.password') }}"><i class="bx bx-cog"></i><span>Change Password</span></a>
 			</li>

@@ -28,6 +28,8 @@ Route::post('/user/profile/store', [UserController::class, 'UserProfileStore'])-
 
 Route::get('/user/logout', [UserController::class, 'UserLogout'])->name('user.logout');
 
+Route::post('/user/update/password', [UserController::class, 'UserUpdatePassword'])->name('user.update.password');
+
 
 }); // Gorup Milldeware End
 

@@ -14,9 +14,9 @@ use App\Http\Controllers\VendorController;
 | contains the "web" middleware group. Now create something great!
 |
 */ 
-
+ 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.index');
 });
 
 Route::get('/dashboard', function () {

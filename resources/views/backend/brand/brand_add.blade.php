@@ -29,7 +29,7 @@
 	<div class="card">
 		<div class="card-body">
 
-		<form method="post" action="{{ route('admin.profile.store') }}" enctype="multipart/form-data" >
+		<form method="post" action="{{ route('store.brand') }}" enctype="multipart/form-data" >
 			@csrf
 		 
 			<div class="row mb-3">

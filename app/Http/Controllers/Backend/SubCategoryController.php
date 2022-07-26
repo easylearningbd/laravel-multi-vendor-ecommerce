@@ -15,6 +15,30 @@ class SubCategoryController extends Controller
     } // End Method 
 
 
+    public function AddSubCategory(){
+
+        $categories = Category::orderBy('category_name','ASC')->get();
+      return view('backend.subcategory.subcategory_add',compact('categories'));
+
+    }// End Method 
+
+
+    public function StoreSubCategory(Request $request){ 
+
+        SubCategory::insert([
+            'category_id' => $request->category_id,
+            'subcategory_name' => $request->subcategory_name,
+            'subcategory_slug' => strtolower(str_replace(' ', '-',$request->subcategory_name)), 
+        ]);
+
+       $notification = array(
+            'message' => 'SubCategory Inserted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.subcategory')->with($notification); 
+
+    }// End Method 
 
 
 

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-
+ 
 class VendorController extends Controller
 {
     public function VendorDashboard(){
@@ -105,6 +105,9 @@ public function VendorUpdatePassword(Request $request){
 
 
 
+    public function BecomeVendor(){
+        return view('auth.become_vendor');
+    } // End Mehtod 
 
 
 

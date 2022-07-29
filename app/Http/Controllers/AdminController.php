@@ -110,6 +110,14 @@ public function AdminDestroy(Request $request){
         return view('backend.vendor.active_vendor',compact('ActiveVendor'));
 
     }// End Mehtod 
+
+
+    public function InactiveVendorDetails($id){
+
+        $inactiveVendorDetails = User::findOrFail($id);
+        return view('backend.vendor.inactive_vendor_details',compact('inactiveVendorDetails'));
+
+    }// End Mehtod 
  
 
 }

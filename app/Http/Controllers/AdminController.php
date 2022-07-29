@@ -103,6 +103,13 @@ public function AdminDestroy(Request $request){
         return view('backend.vendor.inactive_vendor',compact('inActiveVendor'));
 
     }// End Mehtod 
+
+
+    public function ActiveVendor(){
+        $ActiveVendor = User::where('status','active')->where('role','vendor')->latest()->get();
+        return view('backend.vendor.active_vendor',compact('ActiveVendor'));
+
+    }// End Mehtod 
  
 
 }

@@ -72,9 +72,31 @@ class ProductController extends Controller
 
         /// Multiple Image Upload From her //////
 
+        $images = $request->file('multi_img');
+        foreach($images as $img){
+            $make_name = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
+        Image::make($img)->resize(800,800)->save('upload/products/multi-image/'.$make_name);
+        $uploadPath = 'upload/products/multi-image/'.$make_name;
 
 
-        
+        MultiImg::insert([
+
+            'product_id' => $product_id,
+            'photo_name' => $uploadPath,
+            'created_at' => Carbon::now(), 
+
+        ]); 
+        } // end foreach
+
+        /// End Multiple Image Upload From her //////
+
+        $notification = array(
+            'message' => 'Product Inserted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.product')->with($notification); 
+
 
     } // End Method 
 

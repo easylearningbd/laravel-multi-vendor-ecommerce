@@ -19,7 +19,11 @@ class ProductController extends Controller
     } // End Method 
 
 
+    public function AddProduct(){
 
+        return view('backend.product.product_add');
+
+    } // End Method 
 
 
 

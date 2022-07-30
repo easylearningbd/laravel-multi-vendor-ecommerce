@@ -83,52 +83,110 @@
 			<div class="border border-3 p-4 rounded">
               <div class="row g-3">
 				<div class="col-md-6">
-					<label for="inputPrice" class="form-label">Price</label>
-					<input type="email" class="form-control" id="inputPrice" placeholder="00.00">
+					<label for="inputPrice" class="form-label">Product Price</label>
+					<input type="text" name="selling_price" class="form-control" id="inputPrice" placeholder="00.00">
 				  </div>
 				  <div class="col-md-6">
-					<label for="inputCompareatprice" class="form-label">Compare at Price</label>
-					<input type="password" class="form-control" id="inputCompareatprice" placeholder="00.00">
+					<label for="inputCompareatprice" class="form-label">Discount Price </label>
+					<input type="text" name="discount_price" class="form-control" id="inputCompareatprice" placeholder="00.00">
 				  </div>
 				  <div class="col-md-6">
-					<label for="inputCostPerPrice" class="form-label">Cost Per Price</label>
-					<input type="email" class="form-control" id="inputCostPerPrice" placeholder="00.00">
+					<label for="inputCostPerPrice" class="form-label">Product Code</label>
+					<input type="text" name="product_code" class="form-control" id="inputCostPerPrice" placeholder="00.00">
 				  </div>
 				  <div class="col-md-6">
-					<label for="inputStarPoints" class="form-label">Star Points</label>
-					<input type="password" class="form-control" id="inputStarPoints" placeholder="00.00">
+					<label for="inputStarPoints" class="form-label">Product Quantity</label>
+					<input type="text" name="product_qty" class="form-control" id="inputStarPoints" placeholder="00.00">
 				  </div>
+
+
 				  <div class="col-12">
-					<label for="inputProductType" class="form-label">Product Type</label>
-					<select class="form-select" id="inputProductType">
+					<label for="inputProductType" class="form-label">Product Brand</label>
+					<select name="brand_id" class="form-select" id="inputProductType">
 						<option></option>
 						<option value="1">One</option>
 						<option value="2">Two</option>
 						<option value="3">Three</option>
 					  </select>
 				  </div>
+
 				  <div class="col-12">
-					<label for="inputVendor" class="form-label">Vendor</label>
-					<select class="form-select" id="inputVendor">
+					<label for="inputVendor" class="form-label">Product Category</label>
+					<select name="category_id" class="form-select" id="inputVendor">
 						<option></option>
 						<option value="1">One</option>
 						<option value="2">Two</option>
 						<option value="3">Three</option>
 					  </select>
 				  </div>
+
 				  <div class="col-12">
-					<label for="inputCollection" class="form-label">Collection</label>
-					<select class="form-select" id="inputCollection">
+					<label for="inputCollection" class="form-label">Product SubCategory</label>
+					<select name="subcategory_id" class="form-select" id="inputCollection">
 						<option></option>
 						<option value="1">One</option>
 						<option value="2">Two</option>
 						<option value="3">Three</option>
 					  </select>
 				  </div>
+
+
 				  <div class="col-12">
-					<label for="inputProductTags" class="form-label">Product Tags</label>
-					<input type="text" class="form-control" id="inputProductTags" placeholder="Enter Product Tags">
+					<label for="inputCollection" class="form-label">Select Vendor</label>
+					<select name="vendor_id" class="form-select" id="inputCollection">
+						<option></option>
+						<option value="1">One</option>
+						<option value="2">Two</option>
+						<option value="3">Three</option>
+					  </select>
 				  </div>
+
+
+				  <div class="col-12">
+
+	 <div class="row g-3">
+
+	 <div class="col-md-6">	
+    <div class="form-check">
+			<input class="form-check-input" name="hot_deals" type="checkbox" value="1" id="flexCheckDefault">
+			<label class="form-check-label" for="flexCheckDefault"> Hot Deals</label>
+		</div>
+	</div>
+
+	<div class="col-md-6">	
+    <div class="form-check">
+			<input class="form-check-input" name="featured" type="checkbox" value="1" id="flexCheckDefault">
+			<label class="form-check-label" for="flexCheckDefault">Featured</label>
+		</div>
+	</div>
+
+
+	
+
+<div class="col-md-6">	
+    <div class="form-check">
+			<input class="form-check-input" name="special_offer" type="checkbox" value="1" id="flexCheckDefault">
+			<label class="form-check-label" for="flexCheckDefault">Special Offer</label>
+		</div>
+	</div>
+
+
+	<div class="col-md-6">	
+    <div class="form-check">
+			<input class="form-check-input" name="special_deals" type="checkbox" value="1" id="flexCheckDefault">
+			<label class="form-check-label" for="flexCheckDefault">Special Deals</label>
+		</div>
+	</div>
+
+
+
+		</div> <!-- // end row  -->
+					 
+				  </div>
+
+<hr>
+
+
 				  <div class="col-12">
 					  <div class="d-grid">
                          <button type="button" class="btn btn-primary">Save Product</button>

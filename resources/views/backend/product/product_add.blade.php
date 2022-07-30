@@ -262,7 +262,7 @@
   						url: "{{ url('/subcategory/ajax') }}/"+category_id,
   						type: "GET",
   						dataType:"json",
-  						success::function(data){
+  						success:function(data){
   							$('select[name="subcategory_id"]').html('');
   							var d =$('select[name="subcategory_id"]').empty();
   							$.each(data, function(key, value){

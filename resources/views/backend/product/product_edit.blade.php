@@ -28,7 +28,7 @@
 			@csrf
 
 		<input type="hidden" name="id" value="{{ $products->id }}">
-		
+
        <div class="form-body mt-4">
 	    <div class="row">
 		   <div class="col-lg-8">
@@ -205,6 +205,51 @@
 </div>
 
 			</div>
+
+
+<!-- /// Main Image Thambnail Update ////// -->
+
+<div class="page-content">
+	<h6 class="mb-0 text-uppercase">Update Main Image Thambnail </h6>
+	<hr>
+<div class="card">
+<form method="post" action="{{ route('update.product.thambnail') }}" enctype="multipart/form-data" >
+			@csrf
+
+	<input type="hidden" name="id" value="{{ $products->id }}">	
+	<input type="hidden" name="old_img" value="{{ $products->product_thambnail }}">		
+
+	<div class="card-body">
+		<div class="mb-3">
+			<label for="formFile" class="form-label">Chose Thambnail Image </label>
+			<input name="product_thambnail" class="form-control" type="file" id="formFile">
+		</div>
+
+
+		<div class="mb-3">
+			<label for="formFile" class="form-label"> </label>
+			 <img src="{{ asset($products->product_thambnail) }}" style="width:100px; height:100px">
+		</div>
+
+<input type="submit" class="btn btn-primary px-4" value="Save Changes" />
+
+			 </div>
+
+			</form>
+
+			    </div>
+			</div>
+
+
+<!-- /// End Main Image Thambnail Update ////// -->
+
+
+
+
+
+
+
+
 
 
 

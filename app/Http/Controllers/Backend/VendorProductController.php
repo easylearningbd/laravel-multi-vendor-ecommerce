@@ -242,5 +242,53 @@ public function VendorUpdateProduct(Request $request){
     }// End Method 
 
 
+    public function VendorProductInactive($id){
+
+        Product::findOrFail($id)->update(['status' => 0]);
+        $notification = array(
+            'message' => 'Product Inactive',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+
+    }// End Method 
+
+
+      public function VendorProductActive($id){
+
+        Product::findOrFail($id)->update(['status' => 1]);
+        $notification = array(
+            'message' => 'Product Active',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+
+    }// End Method 
+
+
+     public function VendorProductDelete($id){
+
+        $product = Product::findOrFail($id);
+        unlink($product->product_thambnail);
+        Product::findOrFail($id)->delete();
+
+        $imges = MultiImg::where('product_id',$id)->get();
+        foreach($imges as $img){
+            unlink($img->photo_name);
+            MultiImg::where('product_id',$id)->delete();
+        }
+
+        $notification = array(
+            'message' => 'Vendor Product Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+
+    }// End Method 
+
+
 }
  

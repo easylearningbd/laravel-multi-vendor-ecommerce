@@ -91,7 +91,11 @@ Route::controller(VendorProductController::class)->group(function(){
     Route::get('/vendor/edit/product/{id}' , 'VendorEditProduct')->name('vendor.edit.product');
 
     Route::post('/vendor/update/product' , 'VendorUpdateProduct')->name('vendor.update.product');
+    Route::post('/vendor/update/product/thambnail' , 'VendorUpdateProductThabnail')->name('vendor.update.product.thambnail');
 
+    Route::post('/vendor/update/product/multiimage' , 'VendorUpdateProductmultiImage')->name('vendor.update.product.multiimage');
+    
+    Route::get('/vendor/product/multiimg/delete/{id}' , 'VendorMultiimgDelete')->name('vendor.product.multiimg.delete');
 
     Route::get('/vendor/subcategory/ajax/{category_id}' , 'VendorGetSubCategory');
      

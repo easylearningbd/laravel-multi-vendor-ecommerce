@@ -10,6 +10,8 @@ use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 
+use App\Http\Controllers\Backend\VendorProductController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes 
@@ -65,6 +67,7 @@ Route::middleware(['auth','role:admin'])->group(function() {
 
 /// Vendor Dashboard
 Route::middleware(['auth','role:vendor'])->group(function() {
+
    Route::get('/vendor/dashboard', [VendorController::class, 'VendorDashboard'])->name('vendor.dashobard');
 
    Route::get('/vendor/logout', [VendorController::class, 'VendorDestroy'])->name('vendor.logout');
@@ -76,6 +79,18 @@ Route::middleware(['auth','role:vendor'])->group(function() {
     Route::get('/vendor/change/password', [VendorController::class, 'VendorChangePassword'])->name('vendor.change.password');
 
     Route::post('/vendor/update/password', [VendorController::class, 'VendorUpdatePassword'])->name('vendor.update.password');
+
+
+
+// Vendor Add Product All Route 
+Route::controller(VendorProductController::class)->group(function(){
+    Route::get('/vendor/all/product' , 'VendorAllProduct')->name('vendor.all.product');
+     
+
+});
+
+
+
 
 
 

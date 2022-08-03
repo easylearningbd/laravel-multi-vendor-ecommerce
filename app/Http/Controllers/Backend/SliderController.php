@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Slider;
 use Image;
-
+ 
 class SliderController extends Controller
 {
       public function AllSlider(){

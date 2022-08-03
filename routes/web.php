@@ -202,8 +202,8 @@ Route::controller(ProductController::class)->group(function(){
  // Slider All Route 
 Route::controller(SliderController::class)->group(function(){
     Route::get('/all/slider' , 'AllSlider')->name('all.slider');
-    Route::get('/add/category' , 'AddCategory')->name('add.category');
-    Route::post('/store/category' , 'StoreCategory')->name('store.category');
+    Route::get('/add/slider' , 'AddSlider')->name('add.slider');
+    Route::post('/store/slider' , 'StoreSlider')->name('store.slider');
     Route::get('/edit/category/{id}' , 'EditCategory')->name('edit.category');
     Route::post('/update/category' , 'UpdateCategory')->name('update.category');
     Route::get('/delete/category/{id}' , 'DeleteCategory')->name('delete.category');

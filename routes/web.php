@@ -214,8 +214,8 @@ Route::controller(SliderController::class)->group(function(){
  // Banner All Route 
 Route::controller(BannerController::class)->group(function(){
     Route::get('/all/banner' , 'AllBanner')->name('all.banner');
-    Route::get('/add/slider' , 'AddSlider')->name('add.slider');
-    Route::post('/store/slider' , 'StoreSlider')->name('store.slider');
+    Route::get('/add/banner' , 'AddBanner')->name('add.banner');
+    Route::post('/store/banner' , 'StoreBanner')->name('store.banner');
     Route::get('/edit/slider/{id}' , 'EditSlider')->name('edit.slider');
     Route::post('/update/slider' , 'UpdateSlider')->name('update.slider');
     Route::get('/delete/slider/{id}' , 'DeleteSlider')->name('delete.slider');

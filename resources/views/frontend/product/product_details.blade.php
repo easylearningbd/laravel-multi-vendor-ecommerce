@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="breadcrumb">
                     <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                    <span></span> <a href="shop-grid-right.html">Vegetables & tubers</a> <span></span> Seeds of Change Organic
+                    <span></span> <a href="shop-grid-right.html">{{ $product['category']['category_name'] }}</a> <span></span> {{ $product['subcategory']['subcategory_name'] }} <span></span>{{ $product->product_name }} 
                 </div>
             </div>
         </div>
@@ -19,37 +19,18 @@
                 <span class="zoom-icon"><i class="fi-rs-search"></i></span>
                 <!-- MAIN SLIDES -->
                 <div class="product-image-slider">
+                	@foreach($multiImage as $img)
                     <figure class="border-radius-10">
-                        <img src="assets/imgs/shop/product-16-2.jpg" alt="product image" />
+                        <img src="{{ asset($img->photo_name) }} " alt="product image" />
                     </figure>
-                    <figure class="border-radius-10">
-                        <img src="assets/imgs/shop/product-16-1.jpg" alt="product image" />
-                    </figure>
-                    <figure class="border-radius-10">
-                        <img src="assets/imgs/shop/product-16-3.jpg" alt="product image" />
-                    </figure>
-                    <figure class="border-radius-10">
-                        <img src="assets/imgs/shop/product-16-4.jpg" alt="product image" />
-                    </figure>
-                    <figure class="border-radius-10">
-                        <img src="assets/imgs/shop/product-16-5.jpg" alt="product image" />
-                    </figure>
-                    <figure class="border-radius-10">
-                        <img src="assets/imgs/shop/product-16-6.jpg" alt="product image" />
-                    </figure>
-                    <figure class="border-radius-10">
-                        <img src="assets/imgs/shop/product-16-7.jpg" alt="product image" />
-                    </figure>
+                    @endforeach
                 </div>
                 <!-- THUMBNAILS -->
                 <div class="slider-nav-thumbnails">
-                    <div><img src="assets/imgs/shop/thumbnail-3.jpg" alt="product image" /></div>
-                    <div><img src="assets/imgs/shop/thumbnail-4.jpg" alt="product image" /></div>
-                    <div><img src="assets/imgs/shop/thumbnail-5.jpg" alt="product image" /></div>
-                    <div><img src="assets/imgs/shop/thumbnail-6.jpg" alt="product image" /></div>
-                    <div><img src="assets/imgs/shop/thumbnail-7.jpg" alt="product image" /></div>
-                    <div><img src="assets/imgs/shop/thumbnail-8.jpg" alt="product image" /></div>
-                    <div><img src="assets/imgs/shop/thumbnail-9.jpg" alt="product image" /></div>
+					@foreach($multiImage as $img)
+                    <div><img src="{{ asset($img->photo_name) }}" alt="product image" /></div>
+                     @endforeach
+                  
                 </div>
             </div>
             <!-- End Gallery -->

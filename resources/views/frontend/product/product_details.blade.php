@@ -181,36 +181,8 @@
 <div class="tab-content shop_info_tab entry-main-content">
 <div class="tab-pane fade show active" id="Description">
     <div class="">
-        <p>Uninhibited carnally hired played in whimpered dear gorilla koala depending and much yikes off far quetzal goodness and from for grimaced goodness unaccountably and meadowlark near unblushingly crucial scallop tightly neurotic hungrily some and dear furiously this apart.</p>
-        <p>Spluttered narrowly yikes left moth in yikes bowed this that grizzly much hello on spoon-fed that alas rethought much decently richly and wow against the frequent fluidly at formidable acceptably flapped besides and much circa far over the bucolically hey precarious goldfinch mastodon goodness gnashed a jellyfish and one however because.</p>
-        <ul class="product-more-infor mt-30">
-            <li><span>Type Of Packing</span> Bottle</li>
-            <li><span>Color</span> Green, Pink, Powder Blue, Purple</li>
-            <li><span>Quantity Per Case</span> 100ml</li>
-            <li><span>Ethyl Alcohol</span> 70%</li>
-            <li><span>Piece In One</span> Carton</li>
-        </ul>
-        <hr class="wp-block-separator is-style-dots" />
-        <p>Laconic overheard dear woodchuck wow this outrageously taut beaver hey hello far meadowlark imitatively egregiously hugged that yikes minimally unanimous pouted flirtatiously as beaver beheld above forward energetic across this jeepers beneficently cockily less a the raucously that magic upheld far so the this where crud then below after jeez enchanting drunkenly more much wow callously irrespective limpet.</p>
-        <h4 class="mt-30">Packaging & Delivery</h4>
-        <hr class="wp-block-separator is-style-wide" />
-        <p>Less lion goodness that euphemistically robin expeditiously bluebird smugly scratched far while thus cackled sheepishly rigid after due one assenting regarding censorious while occasional or this more crane went more as this less much amid overhung anathematic because much held one exuberantly sheep goodness so where rat wry well concomitantly.</p>
-        <p>Scallop or far crud plain remarkably far by thus far iguana lewd precociously and and less rattlesnake contrary caustic wow this near alas and next and pled the yikes articulate about as less cackled dalmatian in much less well jeering for the thanks blindly sentimental whimpered less across objectively fanciful grimaced wildly some wow and rose jeepers outgrew lugubrious luridly irrationally attractively dachshund.</p>
-        <h4 class="mt-30">Suggested Use</h4>
-        <ul class="product-more-infor mt-30">
-            <li>Refrigeration not necessary.</li>
-            <li>Stir before serving</li>
-        </ul>
-        <h4 class="mt-30">Other Ingredients</h4>
-        <ul class="product-more-infor mt-30">
-            <li>Organic raw pecans, organic raw cashews.</li>
-            <li>This butter was produced using a LTG (Low Temperature Grinding) process</li>
-            <li>Made in machinery that processes tree nuts but does not process peanuts, gluten, dairy or soy</li>
-        </ul>
-        <h4 class="mt-30">Warnings</h4>
-        <ul class="product-more-infor mt-30">
-            <li>Oil separation occurs naturally. May contain pieces of shell.</li>
-        </ul>
+        <p> {!! $product->long_descp !!} </p>
+        
     </div>
 </div>
 <div class="tab-pane fade" id="Additional-info">
@@ -303,13 +275,22 @@
         </tbody>
     </table>
 </div>
+
+
 <div class="tab-pane fade" id="Vendor-info">
     <div class="vendor-logo d-flex mb-30">
-        <img src="assets/imgs/vendor/vendor-18.svg" alt="" />
+        <img src="{{ (!empty($product->vendor->photo)) ? url('upload/vendor_images/'.$product->vendor->photo):url('upload/no_image.jpg') }}" alt="" />
         <div class="vendor-name ml-15">
-            <h6>
-                <a href="vendor-details-2.html">Noodles Co.</a>
+        	@if($product->vendor_id == NULL)
+        	<h6>
+                <a href="vendor-details-2.html">Owner</a>
             </h6>
+        	@else
+        	<h6>
+                <a href="vendor-details-2.html">{{ $product['vendor']['name'] }}</a>
+            </h6>
+        	@endif
+            
             <div class="product-rate-cover text-end">
                 <div class="product-rate d-inline-block">
                     <div class="product-rating" style="width: 90%"></div>
@@ -319,25 +300,14 @@
         </div>
     </div>
     <ul class="contact-infor mb-50">
-        <li><img src="assets/imgs/theme/icons/icon-location.svg" alt="" /><strong>Address: </strong> <span>5171 W Campbell Ave undefined Kent, Utah 53127 United States</span></li>
-        <li><img src="assets/imgs/theme/icons/icon-contact.svg" alt="" /><strong>Contact Seller:</strong><span>(+91) - 540-025-553</span></li>
+        <li><img src="assets/imgs/theme/icons/icon-location.svg" alt="" /><strong>Address: </strong> <span>{{ $product['vendor']['address'] }}</span></li>
+        <li><img src="assets/imgs/theme/icons/icon-contact.svg" alt="" /><strong>Contact Seller:</strong><span>{{ $product['vendor']['phone'] }}</span></li>
     </ul>
-    <div class="d-flex mb-55">
-        <div class="mr-30">
-            <p class="text-brand font-xs">Rating</p>
-            <h4 class="mb-0">92%</h4>
-        </div>
-        <div class="mr-30">
-            <p class="text-brand font-xs">Ship on time</p>
-            <h4 class="mb-0">100%</h4>
-        </div>
-        <div>
-            <p class="text-brand font-xs">Chat response</p>
-            <h4 class="mb-0">89%</h4>
-        </div>
-    </div>
-    <p>Noodles & Company is an American fast-casual restaurant that offers international and American noodle dishes and pasta in addition to soups and salads. Noodles & Company was founded in 1995 by Aaron Kennedy and is headquartered in Broomfield, Colorado. The company went public in 2013 and recorded a $457 million revenue in 2017.In late 2018, there were 460 Noodles & Company locations across 29 states and Washington, D.C.</p>
+    
+    <p>{{ $product['vendor']['vendor_short_info'] }}</p>
 </div>
+
+
 <div class="tab-pane fade" id="Reviews">
     <!--Comments-->
     <div class="comments-area">

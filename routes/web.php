@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\VendorProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\BannerController;
 
+use App\Http\Controllers\Frontend\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -220,12 +221,11 @@ Route::controller(BannerController::class)->group(function(){
     Route::post('/update/banner' , 'UpdateBanner')->name('update.banner');
     Route::get('/delete/banner/{id}' , 'DeleteBanner')->name('delete.banner');
 
-});
-
-
-
-
-
-
+}); 
 
 }); // Admin End Middleware 
+
+
+/// Frontend Product Details All Route 
+
+Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);

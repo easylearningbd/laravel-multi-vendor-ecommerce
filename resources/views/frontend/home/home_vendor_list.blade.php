@@ -37,7 +37,7 @@ $vendors = App\Models\User::where('status','active')->where('role','vendor')->or
                                         <div class="product-category">
                                             <span class="text-muted">Since {{ $vendor->vendor_join }}</span>
                                         </div>
-                                        <h4 class="mb-5"><a href="vendor-details-1.html">{{ $vendor->name }}</a></h4>
+  <h4 class="mb-5"><a href="{{ route('vendor.details',$vendor->id) }}">{{ $vendor->name }}</a></h4>
                                         <div class="product-rate-cover">
               @php
  $products = App\Models\Product::where('vendor_id',$vendor->id)->get();

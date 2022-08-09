@@ -8,7 +8,7 @@ $vendors = App\Models\User::where('status','active')->where('role','vendor')->or
 
       <div class="section-title wow animate__animated animate__fadeIn" data-wow-delay="0">
                     <h3 class="">All Our Vendor List </h3>
-                    <a class="show-all" href="shop-grid-right.html">
+                    <a class="show-all" href="{{ route('vendor.all') }}">
                         All Vendors
                         <i class="fi-rs-angle-right"></i>
                     </a>

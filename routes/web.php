@@ -15,7 +15,7 @@ use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\BannerController;
 
 use App\Http\Controllers\Frontend\IndexController;
-
+ 
 /*
 |--------------------------------------------------------------------------
 | Web Routes 
@@ -234,3 +234,5 @@ Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDeta
 Route::get('/vendor/details/{id}', [IndexController::class, 'VendorDetails'])->name('vendor.details');
 
 Route::get('/vendor/all', [IndexController::class, 'VendorAll'])->name('vendor.all');
+
+Route::get('/product/category/{id}/{slug}', [IndexController::class, 'CatWiseProduct']);

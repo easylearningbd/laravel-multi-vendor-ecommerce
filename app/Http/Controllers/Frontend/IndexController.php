@@ -10,7 +10,7 @@ use App\Models\MultiImg;
 use App\Models\Brand;
 use App\Models\Product;
 use App\Models\User; 
-
+ 
 class IndexController extends Controller
 {
 
@@ -76,6 +76,15 @@ class IndexController extends Controller
         return view('frontend.vendor.vendor_all',compact('vendors'));
 
      } // End Method 
+
+
+     public function CatWiseProduct(Request $request,$id,$slug){
+      $products = Product::where('status',1)->where('category_id',$id)->orderBy('id','DESC')->get();
+      $categories = Category::orderBy('category_name','ASC')->get();
+
+      return view('frontend.product.category_view',compact('products','categories'));
+
+     }// End Method 
 
 
 }

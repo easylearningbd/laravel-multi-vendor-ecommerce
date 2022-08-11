@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 
-<head>
+<head>  
     <meta charset="utf-8" />
     <title>Easy Shop Online Store </title>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -24,9 +24,9 @@
     <!-- Modal -->
  
     <!-- Quick view -->
-  @include('frontend.body.quickview')
+  @include('frontend.body.quickview') 
     <!-- Header  -->
-
+ 
   @include('frontend.body.header')
     <!--End header--> 
 

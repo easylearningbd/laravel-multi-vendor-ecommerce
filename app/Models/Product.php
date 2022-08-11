@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+    protected $guarded = []; 
 
     public function vendor(){
         return $this->belongsTo(User::class,'vendor_id','id');

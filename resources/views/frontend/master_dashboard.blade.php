@@ -97,7 +97,28 @@
             url: '/product/view/modal/'+id,
             dataType: 'json',
             success:function(data){
-                console.log(data)
+                // console.log(data)
+
+            $('#pname').text(data.product.product_name);
+            $('#pprice').text(data.product.selling_price);
+            $('#pcode').text(data.product.product_code);
+            $('#pcategory').text(data.product.category.category_name);
+            $('#pbrand').text(data.product.brand.brand_name);
+            $('#pimage').attr('src','/'+data.product.product_thambnail );
+
+            
+            // Product Price 
+            if (data.product.discount_price == null) {
+                $('#pprice').text('');
+                $('#oldprice').text('');
+                $('#pprice').text(data.product.selling_price);
+
+            }else{
+                $('#pprice').text(data.product.discount_price);
+                $('#oldprice').text(data.product.selling_price); 
+            } // end else
+
+
             }
         })
 

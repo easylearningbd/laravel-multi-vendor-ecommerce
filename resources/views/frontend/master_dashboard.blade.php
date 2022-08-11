@@ -21,6 +21,7 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/plugins/animate.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/main.css?v=5.3') }}" />
+
 </head>
 
 <body>
@@ -117,6 +118,47 @@
                 $('#pprice').text(data.product.discount_price);
                 $('#oldprice').text(data.product.selling_price); 
             } // end else
+
+
+            /// Start Stock Option
+
+            if (data.product.product_qty > 0) {
+                $('#aviable').text('');
+                $('#stockout').text('');
+                $('#aviable').text('aviable');
+
+            }else{
+                $('#aviable').text('');
+                $('#stockout').text('');
+                $('#stockout').text('stockout');
+            } 
+            ///End Start Stock Option
+
+             ///Size 
+
+             $('select[name="size"]').empty();
+             $.each(data.size,function(key,value){
+                $('select[name="size"]').append('<option value="'+value+' ">'+value+'  </option')
+                if (data.size == "") {
+                    $('#sizeArea').hide();
+                }else{
+                     $('#sizeArea').show();
+                }
+             }) // end size
+
+
+                     ///Color 
+               $('select[name="color"]').empty();
+             $.each(data.color,function(key,value){
+                $('select[name="color"]').append('<option value="'+value+' ">'+value+'  </option')
+                if (data.color == "") {
+                    $('#colorArea').hide();
+                }else{
+                     $('#colorArea').show();
+                }
+             }) // end size
+
+
 
 
             }

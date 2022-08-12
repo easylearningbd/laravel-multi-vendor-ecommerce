@@ -116,7 +116,7 @@
                 <div class="header-action-icon-2">
                     <a class="mini-cart-icon" href="shop-cart.html">
                         <img alt="Nest" src="{{ asset('frontend/assets/imgs/theme/icons/icon-cart.svg') }}" />
-                        <span class="pro-count blue">2</span>
+                        <span class="pro-count blue" id="cartQty"> </span>
                     </a>
                     <a href="shop-cart.html"><span class="lable">Cart</span></a>
                     <div class="cart-dropdown-wrap cart-dropdown-hm2">
@@ -124,7 +124,7 @@
 
          <!--   // mini cart start with ajax -->
          <div id="miniCart">
-            
+
          </div>
 
           <!--   // End mini cart start with ajax -->
@@ -135,7 +135,7 @@
 
                         <div class="shopping-cart-footer">
                             <div class="shopping-cart-total">
-                                <h4>Total <span>$4000.00</span></h4>
+                                <h4>Total <span id="cartSubTotal"> </span></h4>
                             </div>
                             <div class="shopping-cart-button">
                                 <a href="shop-cart.html" class="outline">View cart</a>

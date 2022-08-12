@@ -85,7 +85,7 @@
     
     $.ajaxSetup({
         headers:{
-            'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('centent')
+            'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
         }
     })
 
@@ -187,6 +187,7 @@
         },
         url: "/cart/data/store/"+id,
         success:function(data){
+            $('#closeModal').click();
             console.log(data)
         }
 

@@ -390,7 +390,7 @@
             const Toast = Swal.mixin({
                   toast: true,
                   position: 'top-end',
-                  icon: 'success', 
+                  
                   showConfirmButton: false,
                   timer: 3000 
             })
@@ -398,6 +398,7 @@
                     
                     Toast.fire({
                     type: 'success',
+                    icon: 'success', 
                     title: data.success, 
                     })
 
@@ -405,6 +406,7 @@
                
            Toast.fire({
                     type: 'error',
+                    icon: 'error', 
                     title: data.error, 
                     })
                 }

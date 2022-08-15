@@ -419,13 +419,33 @@
         }
 
 
+    </script> 
+<!--  /// End Wishlist Add -->
+
+
+
+<!--  /// Start Load Wishlist Data -->
+    <script type="text/javascript">
+        
+        function wishlist(){
+            $.ajax({
+                type: "GET",
+                dataType: 'json',
+                url: "/get-wishlist-product/",
+
+                success:function(response){
+
+                     
+
+
+                }
+            })
+        }
+
+
     </script>
 
-
-
-
-
-<!--  /// End Wishlist Add -->
+ <!--  /// End Load Wishlist Data -->
 
 
 

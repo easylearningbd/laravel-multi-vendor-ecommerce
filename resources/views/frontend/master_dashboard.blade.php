@@ -589,6 +589,95 @@ function wishlistRemove(id){
 <!--  /// End Compare Add -->
 
 
+<!--  /// Start Load Compare Data -->
+    <script type="text/javascript">
+        
+        function compare(){
+            $.ajax({
+                type: "GET",
+                dataType: 'json',
+                url: "/get-compare-product/",
+
+                success:function(response){ 
+
+                   var rows = ""
+                   $.each(response, function(key,value){
+
+        rows += ` <tr class="pr_image">
+                                    <td class="text-muted font-sm fw-600 font-heading mw-200">Preview</td>
+    <td class="row_img"><img src="/${value.product.product_thambnail} " style="width:300px; height:300px;"  alt="compare-img" /></td>
+                                    
+                                </tr>
+                                <tr class="pr_title">
+                                    <td class="text-muted font-sm fw-600 font-heading">Name</td>
+                                    <td class="product_name">
+                                        <h6><a href="shop-product-full.html" class="text-heading">${value.product.product_name} </a></h6>
+                                    </td>
+                                   
+                                </tr>
+                                <tr class="pr_price">
+                                    <td class="text-muted font-sm fw-600 font-heading">Price</td>
+                                    <td class="product_price">
+                      ${value.product.discount_price == null
+                        ? `<h4 class="price text-brand">$${value.product.selling_price}</h4>`
+                        :`<h4 class="price text-brand">$${value.product.discount_price}</h4>`
+
+                        } 
+                                    </td>
+                                  
+                                </tr>
+                                
+                                <tr class="description">
+                                    <td class="text-muted font-sm fw-600 font-heading">Description</td>
+                                    <td class="row_text font-xs">
+                                        <p class="font-sm text-muted"> ${value.product.short_descp}</p>
+                                    </td>
+                                    
+                                </tr>
+                                <tr class="pr_stock">
+                                    <td class="text-muted font-sm fw-600 font-heading">Stock status</td>
+                                    <td class="row_stock">
+                                ${value.product.product_qty > 0 
+                                ? `<span class="stock-status in-stock mb-0"> In Stock </span>`
+
+                                :`<span class="stock-status out-stock mb-0">Stock Out </span>`
+
+                               } 
+
+                              </td>
+                                   
+                                </tr>
+                                
+            <tr class="pr_remove text-muted">
+                <td class="text-muted font-md fw-600"></td>
+                <td class="row_remove">
+                    <a href="#" class="text-muted"><i class="fi-rs-trash mr-5"></i><span>Remove</span> </a>
+                </td>
+                
+            </tr> ` 
+
+       });
+
+       $('#compare').html(rows); 
+
+                }
+            })
+        }
+
+    compare();
+
+  // / End Load Compare Data -->
+
+ // Compare Remove Start 
+
+ 
+
+ // Compare Remove End
+
+    </script>
+
+
+
 
 
 </body>

@@ -280,6 +280,7 @@ Route::controller(WishlistController::class)->group(function(){
  // Compare All Route 
 Route::controller(CompareController::class)->group(function(){
     Route::get('/compare' , 'AllCompare')->name('compare');
+    Route::get('/get-compare-product' , 'GetCompareProduct');
    
 
 }); 

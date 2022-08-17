@@ -718,7 +718,7 @@ function wishlistRemove(id){
 
  <!--  // Start Load MY Cart // -->
 <script type="text/javascript">
-     function cart(){
+    function cart(){
     $.ajax({
         type: 'GET',
         url: '/get-cart-product',
@@ -761,11 +761,13 @@ function wishlistRemove(id){
             <td class="text-center detail-info" data-title="Stock">
                 <div class="detail-extralink mr-15">
                     <div class="detail-qty border radius">
-                        <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
+                        
+     <a type="submit" class="qty-down" id="${value.rowId}" onclick="cartDecrement(this.id)"><i class="fi-rs-angle-small-down"></i></a>
                        
       <input type="text" name="quantity" class="qty-val" value="${value.qty}" min="1">
 
                         <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
+
                     </div>
                 </div>
             </td>
@@ -828,6 +830,31 @@ function wishlistRemove(id){
             })
         }
 // Cart Remove End 
+
+// Cart INCREMENT 
+
+// Cart INCREMENT End 
+
+// Cart Decrement Start
+
+ function cartDecrement(rowId){
+    $.ajax({
+        type: 'GET',
+        url: "/cart-decrement/"+rowId,
+        dataType: 'json',
+        success:function(data){
+            cart();
+            miniCart();
+
+        }
+    });
+ }
+
+
+// Cart Decrement End 
+
+
+
 </script>
  <!--  // End Load MY Cart // -->
 

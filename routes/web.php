@@ -17,7 +17,7 @@ use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
 
-use App\Http\Controllers\User\WishlistController;
+use App\Http\Controllers\User\WishlistController; 
 use App\Http\Controllers\User\CompareController;
  
 /*
@@ -286,5 +286,14 @@ Route::controller(CompareController::class)->group(function(){
 }); 
 
 
+ // Cart All Route 
+Route::controller(CartController::class)->group(function(){
+    Route::get('/mycart' , 'MyCart')->name('mycart');
+    
 
-}); // end group middleware
+}); 
+
+
+
+
+}); // end group User middleware

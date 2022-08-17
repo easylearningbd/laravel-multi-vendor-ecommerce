@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Session;
-
+ 
 class CartController extends Controller
 {
     public function AddToCart(Request $request, $id){
@@ -121,6 +121,14 @@ class CartController extends Controller
         return response()->json(['success' => 'Product Remove From Cart']);
 
     }// End Method
+
+
+    public function MyCart(){
+
+        return view('frontend.mycart.view_mycart');
+
+    }// End Method
+
 
 
 

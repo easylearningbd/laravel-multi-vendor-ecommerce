@@ -290,6 +290,7 @@ Route::controller(CompareController::class)->group(function(){
 Route::controller(CartController::class)->group(function(){
     Route::get('/mycart' , 'MyCart')->name('mycart');
     Route::get('/get-cart-product' , 'GetCartProduct');
+    Route::get('/cart-remove/{rowId}' , 'CartRemove');
     
 
 }); 

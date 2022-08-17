@@ -772,7 +772,8 @@ function wishlistRemove(id){
             <td class="price" data-title="Price">
                 <h4 class="text-brand">$${value.subtotal} </h4>
             </td>
-            <td class="action text-center" data-title="Remove"><a href="#" class="text-body"><i class="fi-rs-trash"></i></a></td>
+            <td class="action text-center" data-title="Remove">
+            <a type="submit" class="text-body"  id="${value.rowId}" onclick="cartRemove(this.id)"><i class="fi-rs-trash"></i></a></td>
         </tr>`  
           });
 
@@ -784,6 +785,49 @@ function wishlistRemove(id){
  }
   cart();
 
+  // Cart Remove Start 
+  function cartRemove(id){
+            $.ajax({
+                type: "GET",
+                dataType: 'json',
+                url: "/cart-remove/"+id,
+
+                success:function(data){
+                    cart();
+                    miniCart();
+                     // Start Message 
+
+            const Toast = Swal.mixin({
+                  toast: true,
+                  position: 'top-end',
+                  
+                  showConfirmButton: false,
+                  timer: 3000 
+            })
+            if ($.isEmptyObject(data.error)) {
+                    
+                    Toast.fire({
+                    type: 'success',
+                    icon: 'success', 
+                    title: data.success, 
+                    })
+
+            }else{
+               
+           Toast.fire({
+                    type: 'error',
+                    icon: 'error', 
+                    title: data.error, 
+                    })
+                }
+
+              // End Message  
+
+
+                }
+            })
+        }
+// Cart Remove End 
 </script>
  <!--  // End Load MY Cart // -->
 

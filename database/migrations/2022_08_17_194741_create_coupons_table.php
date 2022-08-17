@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('coupon_name');
             $table->integer('coupon_discount');
             $table->string('coupon_validity');
-            $table->integer('status')->dafault(1);
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

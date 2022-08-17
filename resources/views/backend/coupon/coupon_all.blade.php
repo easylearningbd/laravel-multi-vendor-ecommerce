@@ -16,7 +16,7 @@
 					</div>
 					<div class="ms-auto">
 						<div class="btn-group">
-		<a href="{{ route('add.subcategory') }}" class="btn btn-primary">Add Coupon</a> 				 
+		<a href="{{ route('add.coupon') }}" class="btn btn-primary">Add Coupon</a> 				 
 						</div>
 					</div>
 				</div>
@@ -42,7 +42,7 @@
 			<tr>
 				<td> {{ $key+1 }} </td>
 				<td> {{ $item->coupon_name }}</td>
-				<td> { $item->coupon_discount }}  </td>
+				<td> {{ $item->coupon_discount }}% </td>
 				<td> {{ Carbon\Carbon::parse($item->coupon_validity)->format('D, d F Y') }}  </td>
 
 

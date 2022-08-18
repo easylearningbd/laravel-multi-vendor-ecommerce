@@ -174,6 +174,24 @@ public function StoreDistrict(Request $request){
     }// End Method 
 
 
+    public function StoreState(Request $request){ 
+
+        ShipState::insert([ 
+            'division_id' => $request->division_id, 
+            'district_id' => $request->district_id, 
+            'state_name' => $request->state_name,
+        ]);
+
+       $notification = array(
+            'message' => 'ShipState Inserted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.state')->with($notification); 
+
+    }// End Method 
+
+
 
 
 }

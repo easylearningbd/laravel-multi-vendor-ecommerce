@@ -151,6 +151,28 @@ public function StoreDistrict(Request $request){
 
     }// End Method 
 
+  /////////////// State CRUD ///////////////
+
+
+     public function AllState(){
+        $state = ShipState::latest()->get();
+        return view('backend.ship.state.state_all',compact('state'));
+    } // End Method 
+
+
+    public function AddState(){
+        $division = ShipDivision::orderBy('division_name','ASC')->get();
+        $district = ShipDistricts::orderBy('district_name','ASC')->get();
+         return view('backend.ship.state.state_add',compact('division','district'));
+    }// End Method 
+
+
+    public function GetDistrict($division_id){
+        $dist = ShipDistricts::where('division_id',$division_id)->orderBy('district_name','ASC')->get();
+            return json_encode($dist);
+
+    }// End Method 
+
 
 
 

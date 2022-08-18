@@ -192,6 +192,48 @@ public function StoreDistrict(Request $request){
     }// End Method 
 
 
+        public function EditState($id){
+        $division = ShipDivision::orderBy('division_name','ASC')->get();
+        $district = ShipDistricts::orderBy('district_name','ASC')->get();
+        $state = ShipState::findOrFail($id);
+         return view('backend.ship.state.state_edit',compact('division','district','state'));
+    }// End Method 
+
+
+     public function UpdateState(Request $request){
+
+        $state_id = $request->id;
+
+         ShipState::findOrFail($state_id)->update([
+            'division_id' => $request->division_id, 
+            'district_id' => $request->district_id, 
+            'state_name' => $request->state_name,
+        ]);
+
+       $notification = array(
+            'message' => 'ShipState Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.state')->with($notification); 
+
+
+    }// End Method 
+
+ public function DeleteState($id){
+
+        ShipState::findOrFail($id)->delete();
+
+         $notification = array(
+            'message' => 'ShipState Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification); 
+
+
+    }// End Method 
+
 
 
 }

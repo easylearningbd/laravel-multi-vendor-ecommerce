@@ -885,6 +885,10 @@ function wishlistRemove(id){
                 url: "/coupon-apply",
 
                 success:function(data){
+
+                    if (data.validity == true) {
+                        $('#couponField').hide();
+                    }
                    
 
                      // Start Message 

@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Coupon;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Session;
+use Carbon\Carbon;
   
 class CartController extends Controller
 {
@@ -187,7 +188,7 @@ class CartController extends Controller
                 'total_amount' => round(Cart::total() - Cart::total() * $coupon->coupon_discount/100 )
             ]);
 
-            return response()->json(arrar(
+            return response()->json(array(
                 'validity' => true,                
                 'success' => 'Coupon Applied Successfully'
 

@@ -207,7 +207,7 @@ class CartController extends Controller
         if (Session::has('coupon')) {
             
             return response()->json(array(
-             'subtotal' = Cart::total(),
+             'subtotal' => Cart::total(),
              'coupon_name' => session()->get('coupon')['coupon_name'],
              'coupon_discount' => session()->get('coupon')['coupon_discount'],
              'discount_amount' => session()->get('coupon')['discount_amount'],

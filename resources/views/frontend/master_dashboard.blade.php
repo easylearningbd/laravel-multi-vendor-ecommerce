@@ -4,7 +4,7 @@
 <html class="no-js" lang="en">
 
 <head>   
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /> 
     <title>Easy Shop Online Store </title>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content="" />
@@ -871,6 +871,59 @@ function wishlistRemove(id){
 
 </script>
  <!--  // End Load MY Cart // -->
+
+  <!--  ////////////// Start Apply Coupon ////////////// -->
+<script type="text/javascript">
+    
+  function applyCoupon(id){
+    var coupon_name = $('#coupon_name').val();
+            $.ajax({
+                type: "POST",
+                dataType: 'json',
+                data: {coupon_name:coupon_name},
+
+                url: "/coupon-apply",
+
+                success:function(data){
+                   
+
+                     // Start Message 
+
+            const Toast = Swal.mixin({
+                  toast: true,
+                  position: 'top-end',
+                  
+                  showConfirmButton: false,
+                  timer: 3000 
+            })
+            if ($.isEmptyObject(data.error)) {
+                    
+                    Toast.fire({
+                    type: 'success',
+                    icon: 'success', 
+                    title: data.success, 
+                    })
+
+            }else{
+               
+           Toast.fire({
+                    type: 'error',
+                    icon: 'error', 
+                    title: data.error, 
+                    })
+                }
+
+              // End Message  
+
+
+                }
+            })
+        }
+
+
+</script>
+
+   <!--  ////////////// End Apply Coupon ////////////// -->
 
 
 </body>

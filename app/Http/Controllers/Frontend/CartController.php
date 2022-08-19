@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Session;
- 
+  
 class CartController extends Controller
 {
     public function AddToCart(Request $request, $id){
@@ -171,6 +171,17 @@ class CartController extends Controller
         return response()->json('Increment');
 
     }// End Method
+
+
+
+    public function CouponApply(){
+        
+    }// End Method
+
+
+
+
+
 
 
 }

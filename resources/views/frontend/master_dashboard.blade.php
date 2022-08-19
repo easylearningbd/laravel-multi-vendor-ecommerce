@@ -924,6 +924,22 @@ function wishlistRemove(id){
             })
         }
 
+// Start CouponCalculation Method   
+     function couponCalculation(){
+        $.ajax({
+            type: 'GET',
+            url: "/coupon-calculation",
+            dataType: 'json',
+            success:function(data){
+                
+            }
+        })
+     } 
+     
+
+
+     // Start CouponCalculation Method   
+
 
 </script>
 

@@ -31,5 +31,33 @@ class CheckoutController extends Controller
     }// End Method 
 
 
+
+    public function CheckoutStore(Request $request){
+
+        $data = array();
+        $data['shipping_name'] = $request->shipping_name;
+        $data['shipping_email'] = $request->shipping_email;
+        $data['shipping_phone'] = $request->shipping_phone;
+        $data['post_code'] = $request->post_code;   
+
+        $data['division_id'] = $request->division_id;
+        $data['district_id'] = $request->district_id;
+        $data['state_id'] = $request->state_id;
+        $data['shipping_address'] = $request->shipping_address;
+        $data['notes'] = $request->notes; 
+        $cartTotal = Cart::total();
+
+        if ($request->payment_option == 'stripe') {
+           return view('frontend.payment.stripe',compact('data','cartTotal'));
+        }elseif ($request->payment_option == 'card'){
+            return 'Card Page';
+        }else{
+            return view('frontend.payment.cash',compact('data','cartTotal'));
+        }
+
+
+    }// End Method 
+
+
 }
  

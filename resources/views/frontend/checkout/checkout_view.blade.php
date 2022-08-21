@@ -114,67 +114,32 @@
 <div class="border p-40 cart-totals ml-30 mb-50">
     <div class="d-flex align-items-end justify-content-between mb-30">
         <h4>Your Order</h4>
-        <h6 class="text-muted">Subtotal</h6>
+         
     </div>
     <div class="divider-2 mb-30"></div>
     <div class="table-responsive order_table checkout">
         <table class="table no-border">
             <tbody>
-                
+               @foreach($carts as $item) 
                 <tr>
-                    <td class="image product-thumbnail"><img src="assets/imgs/shop/product-1-1.jpg" alt="#"></td>
+                    <td class="image product-thumbnail"><img src="{{ asset($item->options->image) }} " alt="#" style="width:50px; height: 50px;" ></td>
                     <td>
-                        <h6 class="w-160 mb-5"><a href="shop-product-full.html" class="text-heading">Yidarton Women Summer Blue</a></h6></span>
+                        <h6 class="w-160 mb-5"><a href="shop-product-full.html" class="text-heading">{{ $item->name }}</a></h6></span>
                         <div class="product-rate-cover">
 
-                         <strong>Color : </strong>
-                         <strong>Size : </strong>
+                         <strong>Color :{{ $item->options->color }} </strong>
+                         <strong>Size : {{ $item->options->size }}</strong>
                              
                         </div>
                     </td>
                     <td>
-                        <h6 class="text-muted pl-20 pr-20">x 1</h6>
+                        <h6 class="text-muted pl-20 pr-20">x {{ $item->qty }}</h6>
                     </td>
                     <td>
-                        <h4 class="text-brand">$13.3</h4>
+                        <h4 class="text-brand">${{ $item->price }}</h4>
                     </td>
                 </tr>
-                <tr>
-                    <td class="image product-thumbnail"><img src="assets/imgs/shop/product-2-1.jpg" alt="#"></td>
-                    <td>
-                        <h6 class="w-160 mb-5"><a href="shop-product-full.html" class="text-heading">Seeds of Change Organic Quinoa</a></h6></span>
-                       <div class="product-rate-cover">
-
-                         <strong>Color : </strong>
-                         <strong>Size : </strong>
-                             
-                        </div>
-                    </td>
-                    <td>
-                        <h6 class="text-muted pl-20 pr-20">x 1</h6>
-                    </td>
-                    <td>
-                        <h4 class="text-brand">$15.0</h4>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="image product-thumbnail"><img src="assets/imgs/shop/product-3-1.jpg" alt="#"></td>
-                    <td>
-                        <h6 class="w-160 mb-5"><a href="shop-product-full.html" class="text-heading">Angie’s Boomchickapop Sweet </a></h6></span>
-                       <div class="product-rate-cover">
-
-                         <strong>Color : </strong>
-                         <strong>Size : </strong>
-                             
-                        </div>
-                    </td>
-                    <td>
-                        <h6 class="text-muted pl-20 pr-20">x 1</h6>
-                    </td>
-                    <td>
-                        <h4 class="text-brand">$17.2</h4>
-                    </td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
 
@@ -183,21 +148,24 @@
 
  <table class="table no-border">
         <tbody>
-            <tr>
+
+       @if(Session::has('coupon'))
+
+       <tr>
                 <td class="cart_total_label">
                     <h6 class="text-muted">Subtotal</h6>
                 </td>
                 <td class="cart_total_amount">
-                    <h4 class="text-brand text-end">$12.31</h4>
+                    <h4 class="text-brand text-end">${{ $cartTotal }}</h4>
                 </td>
             </tr>
             
             <tr>
                 <td class="cart_total_label">
-                    <h6 class="text-muted">Coupn Name</h6>
+                    <h6 class="text-muted">Coupon Name</h6>
                 </td>
                 <td class="cart_total_amount">
-                    <h6 class="text-brand text-end">EASYLEA</h6>
+                    <h6 class="text-brand text-end">{{ session()->get('coupon')['coupon_name'] }} ( {{ session()->get('coupon')['coupon_discount'] }}% ) </h6>
                 </td>
             </tr>
 
@@ -206,7 +174,7 @@
                     <h6 class="text-muted">Coupon Discount</h6>
                 </td>
                 <td class="cart_total_amount">
-                    <h4 class="text-brand text-end">$12.31</h4>
+                    <h4 class="text-brand text-end">${{ session()->get('coupon')['discount_amount'] }}</h4>
                 </td>
             </tr>
 
@@ -215,9 +183,29 @@
                     <h6 class="text-muted">Grand Total</h6>
                 </td>
                 <td class="cart_total_amount">
-                    <h4 class="text-brand text-end">$12.31</h4>
+                    <h4 class="text-brand text-end">${{ session()->get('coupon')['total_amount'] }}</h4>
                 </td>
             </tr>
+
+       @else
+
+
+       <tr>
+                <td class="cart_total_label">
+                    <h6 class="text-muted">Grand Total </h6>
+                </td>
+                <td class="cart_total_amount">
+                    <h4 class="text-brand text-end">${{ $cartTotal }}</h4>
+                </td>
+            </tr>
+            
+           
+           
+
+       @endif
+
+
+            
         </tbody>
     </table>
 

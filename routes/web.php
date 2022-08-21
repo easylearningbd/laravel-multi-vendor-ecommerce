@@ -21,6 +21,7 @@ use App\Http\Controllers\Frontend\CartController;
 
 use App\Http\Controllers\User\WishlistController; 
 use App\Http\Controllers\User\CompareController;
+use App\Http\Controllers\User\CheckoutController;
  
 /*
 |--------------------------------------------------------------------------
@@ -368,7 +369,13 @@ Route::controller(CompareController::class)->group(function(){
 
 
 
+ // Wishlist All Route 
+Route::controller(CheckoutController::class)->group(function(){
+    Route::get('/district-get/ajax/{division_id}' , 'DistrictGetAjax');
+    Route::get('/state-get/ajax/{district_id}' , 'StateGetAjax');
+  
 
+}); 
 
 
 

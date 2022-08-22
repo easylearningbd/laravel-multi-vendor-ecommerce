@@ -8,7 +8,7 @@
     <title>Easy Shop Online Store </title>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content="" />
-
+ 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -134,13 +134,14 @@
             dataType: 'json',
             success:function(data){
                 // console.log(data)
-
+ 
             $('#pname').text(data.product.product_name);
             $('#pprice').text(data.product.selling_price);
             $('#pcode').text(data.product.product_code);
             $('#pcategory').text(data.product.category.category_name);
             $('#pbrand').text(data.product.brand.brand_name);
             $('#pimage').attr('src','/'+data.product.product_thambnail );
+            $('#pvendor_id').text(data.product.vendor_id);
 
             $('#product_id').val(id);
             $('#qty').val(1);
@@ -211,6 +212,7 @@
 
      var product_name = $('#pname').text();  
      var id = $('#product_id').val();
+     var vendor_id = $('#pvendor_id').text();
      var color = $('#color option:selected').text();
      var size = $('#size option:selected').text();
      var quantity = $('#qty').val(); 
@@ -218,7 +220,7 @@
         type: "POST",
         dataType : 'json',
         data:{
-            color:color, size:size, quantity:quantity,product_name:product_name
+            color:color, size:size, quantity:quantity,product_name:product_name,vendor_id:vendor_id
         },
         url: "/cart/data/store/"+id,
         success:function(data){
@@ -265,6 +267,7 @@
 
      var product_name = $('#dpname').text();  
      var id = $('#dproduct_id').val();
+     var vendor = $('#vproduct_id').val();
      var color = $('#dcolor option:selected').text();
      var size = $('#dsize option:selected').text();
      var quantity = $('#dqty').val(); 
@@ -272,7 +275,7 @@
         type: "POST",
         dataType : 'json',
         data:{
-            color:color, size:size, quantity:quantity,product_name:product_name
+            color:color, size:size, quantity:quantity,product_name:product_name,vendor:vendor
         },
         url: "/dcart/data/store/"+id,
         success:function(data){

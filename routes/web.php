@@ -384,7 +384,7 @@ Route::controller(CheckoutController::class)->group(function(){
  // Stripe All Route 
 Route::controller(StripeController::class)->group(function(){
     Route::post('/stripe/order' , 'StripeOrder')->name('stripe.order');
-     
+    Route::post('/cash/order' , 'CashOrder')->name('cash.order');
   
 
 }); 

@@ -37,7 +37,7 @@ class StripeController extends Controller
         //dd($charge);
 
         $order_id = Order::insertGetId([
-            'user_id' => Auth::id();
+            'user_id' => Auth::id(),
             'division_id' => $request->division_id,
             'district_id' => $request->district_id,
             'state_id' => $request->state_id,
@@ -49,7 +49,7 @@ class StripeController extends Controller
             'notes' => $request->notes,
 
             'payment_type' => $charge->payment_method,
-            'payment_method ' => 'Stripe',
+            'payment_method' => 'Stripe',
             'transaction_id' => $charge->balance_transaction,
             'currency' => $charge->currency,
             'amount' => $total_amount,
@@ -63,6 +63,36 @@ class StripeController extends Controller
             'created_at' => Carbon::now(),  
 
         ]);
+
+        $carts = Cart::content();
+        foreach($carts as $cart){
+            
+            OrderItem::insert([
+                'order_id' => $order_id,
+                'product_id' => $cart->id,
+                'vendor_id' => $cart->options->vendor,
+                'color' => $cart->options->color,
+                'size' => $cart->options->size,
+                'qty' => $cart->qty,
+                'price' => $cart->price,
+                'created_at' =>Carbon::now(),
+
+            ]);
+
+        } // End Foreach
+
+        if (Session::has('coupon')) {
+           Session::forget('coupon');
+        }
+
+        Cart::destroy();
+
+        $notification = array(
+            'message' => 'Your Order Place Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('dashboard')->with($notification); 
 
 
 

@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Backend\OrderController;
+use App\Http\Controllers\Backend\VendorOrderController;
 use App\Http\Middleware\RedirectIfAuthenticated;
  
 use App\Http\Controllers\Backend\VendorProductController;
@@ -123,11 +124,17 @@ Route::controller(VendorProductController::class)->group(function(){
 });
 
 
+ // Brand All Route 
+Route::controller(VendorOrderController::class)->group(function(){
+    Route::get('/vendor/order' , 'VendorOrder')->name('vendor.order');
+    
+ 
+});
 
 
 
 
-}); // end group middleware
+}); // end Vendor Group middleware
 
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->middleware(RedirectIfAuthenticated::class);

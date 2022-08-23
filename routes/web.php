@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\ShippingAreaController;
+use App\Http\Controllers\Backend\OrderController;
 use App\Http\Middleware\RedirectIfAuthenticated;
  
 use App\Http\Controllers\Backend\VendorProductController;
@@ -282,6 +283,15 @@ Route::controller(ShippingAreaController::class)->group(function(){
     Route::get('/district/ajax/{division_id}' , 'GetDistrict');
 
 }); 
+
+
+ // Admin Order All Route 
+Route::controller(OrderController::class)->group(function(){
+    Route::get('/pending/order' , 'PendingOrder')->name('pending.order');
+ 
+
+}); 
+
 
 
 

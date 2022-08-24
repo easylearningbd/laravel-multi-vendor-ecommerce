@@ -11,10 +11,10 @@
                 </div>
             </div>
         </div>
-        <div class="page-content pt-150 pb-150">
+       <div class="page-content pt-50 pb-50">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-10 m-auto">
+                    <div class="col-lg-12 m-auto">
 <div class="row">
 
 <!-- // Start Col md 3 menu -->
@@ -23,7 +23,7 @@
 <div class="dashboard-menu">
 <ul class="nav flex-column" role="tablist">
     <li class="nav-item">
-        <a class="nav-link "  href="dashboard" ><i class="fi-rs-settings-sliders mr-10"></i>Dashboard</a>
+        <a class="nav-link "  href="{{ route('dashboard') }}" ><i class="fi-rs-settings-sliders mr-10"></i>Dashboard</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="#orders" ><i class="fi-rs-shopping-bag mr-10"></i>Orders</a>

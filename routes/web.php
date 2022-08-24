@@ -1,5 +1,5 @@
 <?php
- 
+  
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController; 
 use App\Http\Controllers\VendorController;
@@ -25,6 +25,7 @@ use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\User\CompareController;
 use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\StripeController;
+use App\Http\Controllers\User\AllUserController;
  
 /*
 |--------------------------------------------------------------------------
@@ -405,6 +406,16 @@ Route::controller(StripeController::class)->group(function(){
   
 
 }); 
+
+
+ // User Dashboard All Route 
+Route::controller(AllUserController::class)->group(function(){
+    Route::get('/user/account/page' , 'UserAccount')->name('user.account.page');
+   
+  
+
+}); 
+
 
 
 

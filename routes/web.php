@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\VendorOrderController;
+use App\Http\Controllers\Backend\ReturnController;
 use App\Http\Middleware\RedirectIfAuthenticated;
  
 use App\Http\Controllers\Backend\VendorProductController;
@@ -314,6 +315,12 @@ Route::controller(OrderController::class)->group(function(){
 }); 
 
 
+ // Return Order All Route 
+Route::controller(ReturnController::class)->group(function(){
+    Route::get('/return/request' , 'ReturnRequest')->name('return.request');
+   
+
+});
 
 
 

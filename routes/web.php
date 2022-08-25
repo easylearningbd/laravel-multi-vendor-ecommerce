@@ -433,6 +433,9 @@ Route::controller(AllUserController::class)->group(function(){
 
  Route::post('/return/order/{order_id}' , 'ReturnOrder')->name('return.order');
 
+ Route::get('/return/order/page' , 'ReturnOrderPage')->name('return.order.page');
+
+
 }); 
 
 

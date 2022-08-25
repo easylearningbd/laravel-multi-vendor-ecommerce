@@ -14,5 +14,19 @@ class ReturnController extends Controller
         return view('backend.return_order.return_request',compact('orders'));
 
     } // End Method 
+
+
+    public function ReturnRequestApproved($order_id){
+
+        Order::where('id',$order_id)->update(['return_order' => 2]);
+
+        $notification = array(
+            'message' => 'Return Order Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification); 
+
+    } // End Method 
 }
  

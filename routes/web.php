@@ -305,6 +305,9 @@ Route::controller(OrderController::class)->group(function(){
  Route::get('/admin/delivered/order' , 'AdminDeliveredOrder')->name('admin.delivered.order');
 
  Route::get('/pending/confirm/{order_id}' , 'PendingToConfirm')->name('pending-confirm');
+ Route::get('/confirm/processing/{order_id}' , 'ConfirmToProcess')->name('confirm-processing');
+
+  Route::get('/processing/delivered/{order_id}' , 'ProcessToDelivered')->name('processing-delivered');
 
 }); 
 

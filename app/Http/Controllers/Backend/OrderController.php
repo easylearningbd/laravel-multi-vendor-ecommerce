@@ -29,6 +29,24 @@ class OrderController extends Controller
     }// End Method 
 
 
+     public function AdminConfirmedOrder(){
+        $orders = Order::where('status','confirm')->orderBy('id','DESC')->get();
+        return view('backend.orders.confirmed_orders',compact('orders'));
+    } // End Method 
+
+
+ public function AdminProcessingOrder(){
+        $orders = Order::where('status','processing')->orderBy('id','DESC')->get();
+        return view('backend.orders.processing_orders',compact('orders'));
+    } // End Method 
+
+
+    public function AdminDeliveredOrder(){
+        $orders = Order::where('status','deliverd')->orderBy('id','DESC')->get();
+        return view('backend.orders.delivered_orders',compact('orders'));
+    } // End Method 
+
+
  
 }
  

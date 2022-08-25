@@ -32,7 +32,7 @@ class AllUserController extends Controller
         $orders = Order::where('user_id',$id)->orderBy('id','DESC')->get();
           return view('frontend.userdashboard.user_order_page',compact('orders'));
     }// End Method 
-
+ 
 
     public function UserOrderDetails($order_id){
 

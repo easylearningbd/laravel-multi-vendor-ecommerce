@@ -10,6 +10,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Session;
 use Carbon\Carbon;
 use Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class OrderController extends Controller
 {
@@ -84,6 +85,20 @@ class OrderController extends Controller
 
         return redirect()->route('admin.delivered.order')->with($notification); 
 
+
+    }// End Method 
+
+
+ public function AdminInvoiceDownload($order_id){
+
+        $order = Order::with('division','district','state','user')->where('id',$order_id)->first();
+        $orderItem = OrderItem::with('product')->where('order_id',$order_id)->orderBy('id','DESC')->get();
+
+        $pdf = Pdf::loadView('backend.orders.admin_order_invoice', compact('order','orderItem'))->setPaper('a4')->setOption([
+                'tempDir' => public_path(),
+                'chroot' => public_path(),
+        ]);
+        return $pdf->download('invoice.pdf');
 
     }// End Method 
 

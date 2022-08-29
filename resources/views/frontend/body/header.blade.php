@@ -305,7 +305,7 @@
 
                          
                <li>
-                    <a href="page-contact.html">Contact</a>
+                    <a href="{{ route('home.blog') }}">Blog</a>
                 </li>
             </ul>
         </nav>

@@ -15,6 +15,7 @@ use App\Http\Controllers\Backend\VendorOrderController;
 use App\Http\Controllers\Backend\ReturnController;
 use App\Http\Controllers\Backend\ReportController;
 use App\Http\Controllers\Backend\ActiveUserController;
+use App\Http\Controllers\Backend\BlogController;
 use App\Http\Middleware\RedirectIfAuthenticated;
   
 use App\Http\Controllers\Backend\VendorProductController;
@@ -353,6 +354,15 @@ Route::controller(ActiveUserController::class)->group(function(){
 
     Route::get('/all/user' , 'AllUser')->name('all-user');
     Route::get('/all/vendor' , 'AllVendor')->name('all-vendor');
+    
+ 
+});
+
+
+ // Active user and vendor All Route 
+Route::controller(BlogController::class)->group(function(){
+
+    Route::get('/admin/blog/category' , 'AllUser')->name('admin.blog.category'); 
     
  
 });

@@ -25,7 +25,9 @@
 
 <div class="row row-cols-1 row-cols-md-1 row-cols-lg-3 row-cols-xl-3">
 					
-	<form>
+	<form method="post" action="{{ route('search-by-date')}}">
+		@csrf
+		
 		<div class="col">
 			<div class="card">
 				 

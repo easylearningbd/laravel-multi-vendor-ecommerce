@@ -14,7 +14,7 @@ use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\VendorOrderController;
 use App\Http\Controllers\Backend\ReturnController;
 use App\Http\Middleware\RedirectIfAuthenticated;
- 
+  
 use App\Http\Controllers\Backend\VendorProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\BannerController;
@@ -129,6 +129,8 @@ Route::controller(VendorProductController::class)->group(function(){
  // Brand All Route 
 Route::controller(VendorOrderController::class)->group(function(){
     Route::get('/vendor/order' , 'VendorOrder')->name('vendor.order');
+
+    Route::get('/vendor/return/order' , 'VendorReturnOrder')->name('vendor.return.order');
     
  
 });

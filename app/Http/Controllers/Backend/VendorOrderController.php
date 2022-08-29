@@ -21,6 +21,15 @@ class VendorOrderController extends Controller
     } // End Method 
 
 
+    public function VendorReturnOrder(){
+
+         $id = Auth::user()->id;
+        $orderitem = OrderItem::with('order')->where('vendor_id',$id)->orderBy('id','DESC')->get();
+        return view('vendor.backend.orders.return_orders',compact('orderitem'));
+
+    } // End Method 
+
+
 
 }
  

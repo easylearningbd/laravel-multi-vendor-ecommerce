@@ -95,6 +95,33 @@ class BlogController extends Controller
     } // End Method 
 
 
+    public function StoreBlogPost(Request $request){
+
+        $image = $request->file('post_image');
+        $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+        Image::make($image)->resize(1103,906)->save('upload/blog/'.$name_gen);
+        $save_url = 'upload/blog/'.$name_gen;
+
+        BlogPost::insert([
+            'category_id' => $request->category_id,
+            'post_title' => $request->post_title,
+            'post_slug' => strtolower(str_replace(' ', '-',$request->post_title)),
+            'post_short_description' => $request->post_short_description,
+            'post_long_description' => $request->post_long_description,
+            'post_image' => $save_url, 
+            'created_at' => Carbon::now(),
+        ]);
+
+       $notification = array(
+            'message' => 'Blog Post Inserted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('admin.blog.post')->with($notification); 
+
+    }// End Method 
+
+
 
 }
  

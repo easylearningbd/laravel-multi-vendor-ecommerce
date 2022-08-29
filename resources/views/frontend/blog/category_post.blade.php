@@ -6,10 +6,16 @@
                 <div class="archive-header">
                     <div class="row align-items-center">
                         <div class="col-xl-3">
-                            <h1 class="mb-15">Blog & News</h1>
+                            <h3 class="mb-15">  
+                        @foreach($breadcat as $cat)
+                        {{ $cat->blog_category_name }}
+                        @endforeach</h3>
                             <div class="breadcrumb">
                                 <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                                <span></span> Blog & News
+                                <span></span>
+                       @foreach($breadcat as $cat)
+                        {{ $cat->blog_category_name }}
+                        @endforeach
                             </div>
                         </div>
                         

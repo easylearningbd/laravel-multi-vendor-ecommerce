@@ -386,11 +386,11 @@ Route::controller(BlogController::class)->group(function(){
   Route::get('/admin/add/blog/post' , 'AddBlogPost')->name('add.blog.post');
 
   Route::post('/admin/store/blog/post' , 'StoreBlogPost')->name('store.blog.post');
-  Route::get('/admin/edit/blog/category/{id}' , 'EditBlogCateogry')->name('edit.blog.category');
+  Route::get('/admin/edit/blog/post/{id}' , 'EditBlogPost')->name('edit.blog.post');
 
-  Route::post('/admin/update/blog/category' , 'UpdateBlogCateogry')->name('update.blog.category');
+  Route::post('/admin/update/blog/post' , 'UpdateBlogPost')->name('update.blog.post');
 
-  Route::get('/admin/delete/blog/category/{id}' , 'DeleteBlogCateogry')->name('delete.blog.category');
+  Route::get('/admin/delete/blog/post/{id}' , 'DeleteBlogPost')->name('delete.blog.post');
     
  
 });

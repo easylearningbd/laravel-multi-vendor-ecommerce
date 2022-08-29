@@ -76,7 +76,7 @@
     </div>
     <div class="entry-content-2 pl-50">
         <h3 class="post-title mb-20">
-            <a href="blog-post-right.html">{{ $post->post_title }}</a>
+            <a href="{{ url('post/details/'.$post->id.'/'.$post->post_slug) }}">{{ $post->post_title }}</a>
         </h3>
         <p class="post-exerpt mb-40">{{ $post->post_short_description }}</p>
         <div class="entry-meta meta-1 font-xs color-grey mt-10 pb-10">

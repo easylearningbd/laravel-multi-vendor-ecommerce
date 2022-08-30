@@ -49,6 +49,20 @@ class ReviewController extends Controller
     }// End Method 
 
 
+    public function ReviewApprove($id){
+
+        Review::where('id',$id)->update(['status' => 1]);
+
+        $notification = array(
+            'message' => 'Review Approved Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification); 
+
+    }// End Method 
+
+
 
 }
  

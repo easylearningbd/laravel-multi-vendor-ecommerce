@@ -42,7 +42,7 @@
 	@foreach($review as $key => $item)		
 			<tr>
 				<td> {{ $key+1 }} </td>
-				  <td>{{ Str::limit($item->comment, 25);  }}</td>
+				<td>{{ Str::limit($item->comment, 25);  }}</td>
 				<td>{{ $item['user']['name'] }}</td>
 				<td>{{ $item['product']['product_name'] }}</td>
 				<td>
@@ -94,7 +94,7 @@
 					 </td>
 				
 				<td>
-<a href="{{ route('review.approve',$item->id) }}" class="btn btn-danger">Approve</a>
+<a href="{{ route('review.delete',$item->id) }}" class="btn btn-danger" id="delete">Delete</a>
  
 
 				</td> 

@@ -270,7 +270,7 @@
 			<li> <a href="{{ route('pending.review') }}"><i class="bx bx-right-arrow-alt"></i>Pending Review</a>
 			</li>
 
-				<li> <a href="{{ route('admin.blog.post') }}"><i class="bx bx-right-arrow-alt"></i>Publish Review</a>
+				<li> <a href="{{ route('publish.review') }}"><i class="bx bx-right-arrow-alt"></i>Publish Review</a>
 			</li>
 			 
 			 

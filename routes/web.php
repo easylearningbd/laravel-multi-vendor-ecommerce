@@ -145,6 +145,12 @@ Route::controller(VendorOrderController::class)->group(function(){
 
 
 
+Route::controller(ReviewController::class)->group(function(){
+
+ Route::get('/vendor/all/review' , 'VendorAllReview')->name('vendor.all.review');
+ 
+});
+
 
 }); // end Vendor Group middleware
 

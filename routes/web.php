@@ -398,6 +398,14 @@ Route::controller(BlogController::class)->group(function(){
 });
 
 
+// Admin Reviw All Route 
+Route::controller(ReviewController::class)->group(function(){
+
+ Route::get('/pending/review' , 'PendingReview')->name('pending.review'); 
+ 
+});
+
+
 
 
 

@@ -1,6 +1,8 @@
 @extends('frontend.master_dashboard')
 @section('main')
-
+@section('title')
+   Checkout Page 
+@endsection
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
  <div class="page-header breadcrumb-wrap">

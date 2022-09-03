@@ -1,5 +1,8 @@
 @extends('frontend.master_dashboard')
 @section('main')
+@section('title')
+   Blog Page 
+@endsection
 
 <div class="page-header mt-30 mb-75">
             <div class="container">

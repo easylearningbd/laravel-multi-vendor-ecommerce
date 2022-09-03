@@ -1,5 +1,8 @@
 @extends('frontend.master_dashboard')
 @section('main')
+@section('title')
+  MyCart Page 
+@endsection
 
  <div class="page-header breadcrumb-wrap">
             <div class="container">

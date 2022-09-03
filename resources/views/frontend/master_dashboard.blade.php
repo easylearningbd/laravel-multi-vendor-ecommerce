@@ -5,7 +5,7 @@
 
 <head>   
     <meta charset="utf-8" /> 
-    <title>Easy Shop Online Store </title>
+    <title> @yield('title')</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content="" />
  

@@ -55,7 +55,7 @@ $reviewcount = App\Models\Review::where('product_id',$product->id)->where('statu
 
 $avarage = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
 @endphp
-
+  
 
                         <div class="product-rate d-inline-block">
        @if($avarage == 0)

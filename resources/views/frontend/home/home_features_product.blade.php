@@ -66,8 +66,28 @@ $featured = App\Models\Product::where('featured',1)->orderBy('id','DESC')->limit
                     <a href="shop-grid-right.html">{{ $product['category']['category_name'] }}</a>
                 </div>
                 <h2><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}">{{ $product->product_name }}</a></h2>
+
+                @php
+
+$reviewcount = App\Models\Review::where('product_id',$product->id)->where('status',1)->latest()->get();
+
+$avarage = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
+@endphp
+
                 <div class="product-rate d-inline-block">
-                    <div class="product-rating" style="width: 80%"></div>
+                    @if($avarage == 0)
+      
+       @elseif($avarage == 1 || $avarage < 2)                     
+    <div class="product-rating" style="width: 20%"></div>
+       @elseif($avarage == 2 || $avarage < 3)                     
+    <div class="product-rating" style="width: 40%"></div>
+       @elseif($avarage == 3 || $avarage < 4)                     
+    <div class="product-rating" style="width: 60%"></div>
+       @elseif($avarage == 4 || $avarage < 5)                     
+    <div class="product-rating" style="width: 80%"></div>
+       @elseif($avarage == 5 || $avarage < 5)                     
+    <div class="product-rating" style="width: 100%"></div>
+    @endif
                 </div>
 
                 @if($product->discount_price == NULL)
@@ -84,7 +104,11 @@ $featured = App\Models\Product::where('featured',1)->orderBy('id','DESC')->limit
                 
                 <div class="sold mt-15 mb-15">
                     <div class="progress mb-5">
-                        <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuemin="0" aria-valuemax="100"></div>
+
+
+   <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuemin="0" aria-valuemax="100"></div>
+
+
                     </div>
                      
                 </div>

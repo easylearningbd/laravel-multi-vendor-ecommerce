@@ -21,6 +21,7 @@ use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\Backend\VendorProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\BannerController;
+use App\Http\Controllers\Backend\SiteSettingController;
 
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
@@ -413,6 +414,14 @@ Route::controller(ReviewController::class)->group(function(){
  Route::get('/review/delete/{id}' , 'ReviewDelete')->name('review.delete');
 });
 
+
+// Site Setting All Route 
+Route::controller(SiteSettingController::class)->group(function(){
+
+ Route::get('/site/setting' , 'SiteSetting')->name('site.setting');
+ Route::post('/site/setting/update' , 'SiteSettingUpdate')->name('site.setting.update');
+ 
+});
 
 
 

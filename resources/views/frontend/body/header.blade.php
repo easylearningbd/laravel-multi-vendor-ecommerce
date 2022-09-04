@@ -68,7 +68,7 @@ $setting = App\Models\SiteSetting::find(1);
             
             <form action="{{ route('product.search') }}" method="post">
                 @csrf
-                
+
                 <select class="select-active">
                     <option>All Categories</option>
                     <option>Milks and Dairies</option>
@@ -82,7 +82,8 @@ $setting = App\Models\SiteSetting::find(1);
                     <option>Noodles & Rice</option>
                     <option>Ice cream</option>
                 </select>
-                <input name="search" placeholder="Search for items..." />
+                <input name="search" id="search" placeholder="Search for items..." />
+                <div id="searchProducts"></div>
             </form>
         </div>
         <div class="header-action-right">

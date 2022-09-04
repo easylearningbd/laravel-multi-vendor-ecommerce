@@ -79,7 +79,7 @@
             </div>
             
             <hr>
-            <a href="#" class="btn btn-warning" data-abc="true"> <i class="fa fa-chevron-left"></i> Back to orders</a>
+            <a href="{{ route('user.track.order') }}" class="btn btn-warning" data-abc="true"> <i class="fa fa-chevron-left"></i> Back to orders</a>
         </div>
     </article>
 </div>

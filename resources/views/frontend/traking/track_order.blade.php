@@ -33,13 +33,49 @@
                 </div>
             </article>
             <div class="track">
-                <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Pending</span> </div>
-                
-                <div class="step active"> <span class="icon"> <i class="fa fa-user"></i> </span> <span class="text"> Order Confirmed</span> </div>
 
-                <div class="step"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span class="text">Order Processing </span> </div>
+     @if($track->status == 'pending')           
+       <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Pending</span> </div>
 
-                <div class="step"> <span class="icon"> <i class="fa fa-box"></i> </span> <span class="text">Delivered </span> </div>
+       <div class="step"> <span class="icon"> <i class="fa fa-user"></i> </span> <span class="text"> Order Confirmed</span> </div>
+
+       <div class="step"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span class="text">Order Processing </span> </div>
+
+       <div class="step"> <span class="icon"> <i class="fa fa-box"></i> </span> <span class="text">Delivered </span> </div>
+
+       @elseif($track->status == 'confirm')
+
+        <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Pending</span> </div>
+
+       <div class="step active"> <span class="icon"> <i class="fa fa-user"></i> </span> <span class="text"> Order Confirmed</span> </div>
+
+       <div class="step"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span class="text">Order Processing </span> </div>
+
+       <div class="step"> <span class="icon"> <i class="fa fa-box"></i> </span> <span class="text">Delivered </span> </div>
+
+       @elseif($track->status == 'processing')
+
+        <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Pending</span> </div>
+
+       <div class="step active"> <span class="icon"> <i class="fa fa-user"></i> </span> <span class="text"> Order Confirmed</span> </div>
+
+       <div class="step active"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span class="text">Order Processing </span> </div>
+
+       <div class="step"> <span class="icon"> <i class="fa fa-box"></i> </span> <span class="text">Delivered </span> </div>
+
+    @elseif($track->status == 'deliverd')
+
+      <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Pending</span> </div>
+
+       <div class="step active"> <span class="icon"> <i class="fa fa-user"></i> </span> <span class="text"> Order Confirmed</span> </div>
+
+       <div class="step active"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span class="text">Order Processing </span> </div>
+
+       <div class="step active"> <span class="icon"> <i class="fa fa-box"></i> </span> <span class="text">Delivered </span> </div>
+
+       @endif
+
+
             </div>
             
             <hr>

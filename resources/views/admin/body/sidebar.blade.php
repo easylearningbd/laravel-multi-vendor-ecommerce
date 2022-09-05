@@ -315,20 +315,19 @@
 				 
 			 
 			   
-				<li class="menu-label">Charts & Maps</li>
+				<li class="menu-label">Roles And Permission</li>
 				<li>
 					<a class="has-arrow" href="javascript:;">
 						<div class="parent-icon"><i class="bx bx-line-chart"></i>
 						</div>
-						<div class="menu-title">Charts</div>
+						<div class="menu-title">Role & Permission</div>
 					</a>
 					<ul>
-						<li> <a href="charts-apex-chart.html"><i class="bx bx-right-arrow-alt"></i>Apex</a>
+						<li> <a href="{{ route('all.permission') }}"><i class="bx bx-right-arrow-alt"></i>All Permission</a>
 						</li>
-						<li> <a href="charts-chartjs.html"><i class="bx bx-right-arrow-alt"></i>Chartjs</a>
+						<li> <a href="charts-chartjs.html"><i class="bx bx-right-arrow-alt"></i>Add Permission</a>
 						</li>
-						<li> <a href="charts-highcharts.html"><i class="bx bx-right-arrow-alt"></i>Highcharts</a>
-						</li>
+					 
 					</ul>
 				</li>
 				 

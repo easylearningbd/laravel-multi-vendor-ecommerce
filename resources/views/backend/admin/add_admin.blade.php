@@ -29,7 +29,7 @@
 	<div class="card">
 		<div class="card-body">
 
-		<form method="post" action="{{ route('admin.profile.store') }}" enctype="multipart/form-data" >
+		<form method="post" action="{{ route('admin.user.store') }}"  >
 			@csrf
 		
 			<div class="row mb-3">
@@ -80,7 +80,7 @@
 					<h6 class="mb-0">password</h6>
 				</div>
 				<div class="col-sm-9 text-secondary">
-					<input type="text" name="password" class="form-control" placeholder="Add password" />
+					<input type="password" name="password" class="form-control" placeholder="Add password" />
 				</div>
 			</div>
 
@@ -90,7 +90,7 @@
 					<h6 class="mb-0">Asign Roles </h6>
 				</div>
 				<div class="col-sm-9 text-secondary">
-		<select class="form-select mb-3" aria-label="Default select example">
+		<select name="roles" class="form-select mb-3" aria-label="Default select example">
 						<option selected="">Open this select menu</option>
 						@foreach($roles as $role)
 						<option value="{{ $role->id }}">{{ $role->name }}</option>

@@ -29,7 +29,7 @@
 	<div class="card">
 		<div class="card-body">
 
- <form id="myForm" method="post" action="{{ route('role.permission.store') }}"  >
+ <form id="myForm" method="post" action="{{ route('admin.roles.update',$role->id) }}"  >
 			@csrf
 		 
 			<div class="row mb-3">

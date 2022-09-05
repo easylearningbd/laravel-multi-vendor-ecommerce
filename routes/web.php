@@ -455,7 +455,11 @@ Route::controller(RoleController::class)->group(function(){
 
  Route::post('/update/roles' , 'UpdateRoles')->name('update.roles');
 
-  Route::get('/delete/roles/{id}' , 'DeleteRoles')->name('delete.roles');
+ Route::get('/delete/roles/{id}' , 'DeleteRoles')->name('delete.roles');
+
+ // add role permission 
+
+ Route::get('/add/roles/permission' , 'AddRolesPermission')->name('add.roles.permission');
  
 });
 

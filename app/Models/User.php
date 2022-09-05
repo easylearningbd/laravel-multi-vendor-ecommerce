@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Cache;
 use Spatie\Permission\Traits\HasRoles;
+use DB;
 
 class User extends Authenticatable
 {
@@ -49,6 +50,11 @@ class User extends Authenticatable
     }
 
 
+    public static function getpermissionGroups(){
+
+        $permission_groups = DB::table('permissions')->select('group_name')->groupBy('group_name')->get();
+        return $permission_groups;
+    } // End Method 
 
 
 }

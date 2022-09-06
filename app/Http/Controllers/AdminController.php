@@ -245,6 +245,26 @@ public function AdminDestroy(Request $request){
     }// End Mehtod 
 
 
+    public function DeleteAdminRole($id){
+
+        $user = User::findOrFail($id);
+        if (!is_null($user)) {
+            $user->delete();
+        }
+
+         $notification = array(
+            'message' => 'Admin User Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+
+    }// End Mehtod 
+
+
+
+
+
 
 }
  

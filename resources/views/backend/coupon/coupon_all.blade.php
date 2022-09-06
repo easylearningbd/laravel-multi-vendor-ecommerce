@@ -56,9 +56,12 @@
 				  </td>
 				
 				<td>
+ @if(Auth::user()->can('coupon.edit'))
 <a href="{{ route('edit.coupon',$item->id) }}" class="btn btn-info">Edit</a>
+@endif
+@if(Auth::user()->can('coupon.delete'))
 <a href="{{ route('delete.coupon',$item->id) }}" class="btn btn-danger" id="delete" >Delete</a>
-
+@endif
 				</td> 
 			</tr>
 			@endforeach

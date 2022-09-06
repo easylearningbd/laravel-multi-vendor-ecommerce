@@ -251,7 +251,7 @@ public function AdminDestroy(Request $request){
         if (!is_null($user)) {
             $user->delete();
         }
-
+ 
          $notification = array(
             'message' => 'Admin User Deleted Successfully',
             'alert-type' => 'success'

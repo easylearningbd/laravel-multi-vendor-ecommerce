@@ -45,8 +45,12 @@
 				<td> <img src="{{ asset($item->slider_image) }}" style="width: 70px; height:40px;" >  </td>
 				
 				<td>
+  @if(Auth::user()->can('slider.edit'))
 <a href="{{ route('edit.slider',$item->id) }}" class="btn btn-info">Edit</a>
+@endif
+ @if(Auth::user()->can('slider.delete'))
 <a href="{{ route('delete.slider',$item->id) }}" class="btn btn-danger" id="delete" >Delete</a>
+@endif
 
 				</td> 
 			</tr>

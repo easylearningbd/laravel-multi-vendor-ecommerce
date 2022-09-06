@@ -482,6 +482,10 @@ Route::controller(AdminController::class)->group(function(){
  Route::get('/add/admin' , 'AddAdmin')->name('add.admin');
  Route::post('/admin/user/store' , 'AdminUserStore')->name('admin.user.store');
 
+ Route::get('/edit/admin/role/{id}' , 'EditAdminRole')->name('edit.admin.role');
+
+ Route::post('/admin/user/update/{id}' , 'AdminUserUpdate')->name('admin.user.update');
+
 });
 
 

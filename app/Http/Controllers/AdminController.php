@@ -7,7 +7,10 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Permission; 
+
+use App\Notifications\VendorApproveNotification;
+use Illuminate\Support\Facades\Notification;
   
 class AdminController extends Controller
 {
@@ -134,6 +137,8 @@ public function AdminDestroy(Request $request){
             'alert-type' => 'success'
         );
 
+         $vuser = User::where('role','vendor')->get();
+        Notification::send($vuser, new VendorApproveNotification($request));
         return redirect()->route('active.vendor')->with($notification);
 
     }// End Mehtod 

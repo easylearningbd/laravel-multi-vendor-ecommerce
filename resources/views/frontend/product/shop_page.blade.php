@@ -233,17 +233,23 @@ $products = App\Models\Product::where('category_id',$category->id)->get();
 @endforeach
 
 
-                <label class="fw-900 mt-15">Item Condition</label>
-                <div class="custome-checkbox">
-                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox11" value="" />
-                    <label class="form-check-label" for="exampleCheckbox11"><span>New (1506)</span></label>
-                    <br />
-                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox21" value="" />
-                    <label class="form-check-label" for="exampleCheckbox21"><span>Refurbished (27)</span></label>
-                    <br />
-                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox31" value="" />
-                    <label class="form-check-label" for="exampleCheckbox31"><span>Used (45)</span></label>
-                </div>
+    @if(!empty($_GET['brand']))
+    @php
+    $filterBrand = explode(',',$_GET['brand']);
+    @endphp
+
+    @endif
+
+
+                <label class="fw-900 mt-15">Brand</label>
+   @foreach($brands as $brand)  
+   <div class="custome-checkbox">
+        <input class="form-check-input" type="checkbox" name="brand[]" id="exampleBrand{{ $brand->id }}" value="{{ $brand->brand_slug }}" @if(!empty($filterBrand) && in_array($brand->brand_slug,$filterBrand)) checked @endif  onchange="this.form.submit()" />
+        <label class="form-check-label" for="exampleBrand{{ $brand->id }}"><span>{{ $brand->brand_name }}  </span></label>
+        
+    </div>
+    @endforeach
+
             </div>
         </div>
         <a href="shop-grid-right.html" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i> Fillter</a>

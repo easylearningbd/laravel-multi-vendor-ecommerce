@@ -21,15 +21,21 @@ class ShopController extends Controller
             $slugs = explode(',',$_GET['category']);
             $catIds = Category::select('id')->whereIn('category_slug',$slugs)->pluck('id')->toArray();
            $products = Product::whereIn('category_id',$catIds)->get();
+        } 
+        if (!empty($_GET['brand'])) {
+            $slugs = explode(',',$_GET['brand']);
+            $brandIds = Brand::select('id')->whereIn('brand_slug',$slugs)->pluck('id')->toArray();
+           $products = Product::whereIn('brand_id',$brandIds)->get();
         } else{
              $products = Product::where('status',1)->orderBy('id','DESC')->get();
          } 
  
      
       $categories = Category::orderBy('category_name','ASC')->get(); 
+      $brands = Brand::orderBy('brand_name','ASC')->get();
       $newProduct = Product::orderBy('id','DESC')->limit(3)->get();
 
-      return view('frontend.product.shop_page',compact('products','categories','newProduct'));
+      return view('frontend.product.shop_page',compact('products','categories','newProduct','brands'));
 
     } // End Method 
 
@@ -52,7 +58,21 @@ class ShopController extends Controller
         }
 
 
-        return redirect()->route('shop.page',$catUrl);
+        /// Filter For Brand
+
+        $brandUrl = "";
+        if (!empty($data['brand'])) {
+            foreach($data['brand'] as $brand){
+                if (empty($brandUrl)) {
+                    $brandUrl .= '&brand='.$brand;
+                }else{
+                    $brandUrl .= ','.$brand;
+                }
+            }
+        }
+
+
+        return redirect()->route('shop.page',$catUrl.$brandUrl);
 
     }// End Method 
 

@@ -11,7 +11,7 @@ use Spatie\Permission\Models\Permission;
 
 use App\Notifications\VendorApproveNotification;
 use Illuminate\Support\Facades\Notification;
-  
+         
 class AdminController extends Controller
 {
     public function AdminDashboard(){
